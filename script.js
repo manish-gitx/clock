@@ -24,7 +24,7 @@ async function fetchWorldTime(city) {
         });
         if(!response.ok){
             country.innerHTML = `<p>${"City Not Found"}</p>`;
-            fetchWorldTime("delhi");
+            fetchWorldTime("Andorra");
             return;
         }
         const result = await response.json();
@@ -47,7 +47,7 @@ async function fetchWorldTime(city) {
         console.error('Error: ', error);
     }
 }
-fetchWorldTime("delhi")
+fetchWorldTime("Andorra")
 
 
 
