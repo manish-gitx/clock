@@ -6,18 +6,72 @@
     background: url(/clock.png) no-repeat;
     background-size: 100%;
 }
+.buttons button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
 
 .info{
     position: absolute;
     right: 5px;
 }
+.two{
+    display: flex;
+
+}
 
 
 .buttons{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap:10px;
 }
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 #hour, #minute, #second{
     position: absolute;
@@ -58,7 +112,7 @@
 
         .info {
             top: 65%;
-            left: 40%;
+            left: 29%;
         }
     
 }

@@ -14,11 +14,14 @@
 <body>
     <div class="info" >
         <p class="timezone"></p>
+        <p class="country"></p>
         <p class="AM"></p>
     </div>
     <div class="buttons" >
-        <button class="start">start</button>
-        <button class="stop">stop</button>
+        <div class="two">
+            <button class="start">start</button>
+            <button class="stop">stop</button>
+        </div>
         <form>
             <input placeholder="city name" class="input" type="text">
             <button class="text-btn">submit</button>
@@ -33,11 +36,12 @@
     </div>
 
     <form>
-        <label for="cityDropdown">Select a City:</label>
+        <label for="cityDropdown">Search Country:</label>
         <select id="cityDropdown" name="city">
         </select>
     
         <script>
+            const country=document.querySelector(".country")
             fetch('https://restcountries.com/v3.1/all')
                 .then(response => response.json())
                 .then(data => {
@@ -51,6 +55,8 @@
                     });
                     $('#cityDropdown').select2().on('select2:select', function (e) {
                     const selectedCity = e.params.data.id;
+                    const selectedCountry = e.params.data.text;
+                    country.innerHTML = `<p>${"Country: "+selectedCountry}</p>`;
                     stop_timer();
                     fetchWorldTime(selectedCity);
         });

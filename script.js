@@ -33,7 +33,7 @@ async function fetchWorldTime(city) {
         htime=result.hour;
         mtime=result.minute;
         stime=result.second;
-        timezone.innerHTML = `<p>${result.timezone}</p>`;
+        timezone.innerHTML = `<p>${"TimeZone: "+result.timezone}</p>`;
         if(htime>=12){
             am.innerHTML=`<p>${"PM"}</p>`;
 
