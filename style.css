@@ -115,4 +115,7 @@ form{
             left: 29%;
         }
     
+        .buttons{
+            margin-bottom: 40px;
+        }
 }
