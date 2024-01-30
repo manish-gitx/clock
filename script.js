@@ -2,6 +2,13 @@ const start=document.querySelector(".start");
 const stop=document.querySelector(".stop");
 const inputElement = document.querySelector('.input');
 const textBtn = document.querySelector('.text-btn');
+const timezone=document.querySelector('.timezone')
+const am=document.querySelector('.AM')
+document.getElementById('cityDropdown').addEventListener('change', function() {
+    console.log(this.value);
+    stop_timer();
+    fetchWorldTime(this.value);
+});
 
 
 
@@ -30,6 +37,15 @@ async function fetchWorldTime(city) {
         htime=result.hour;
         mtime=result.minute;
         stime=result.second;
+        timezone.innerHTML = `<p>${result.timezone}</p>`;
+        if(htime>=12){
+            am.innerHTML=`<p>${"PM"}</p>`;
+
+        }
+        else{
+            am.innerHTML=`<p>${"AM"}</p>`;
+
+        }
         myinterval=setInterval(startfun,1000);
         // return result;
     } catch (error) {

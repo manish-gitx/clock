@@ -9,12 +9,11 @@
     
 </head>
 <body>
-    <div id="clockContainer">
-        <div id="hour"></div>
-        <div id="minute"></div>
-        <div id="second"></div>
+    <div style="position: absolute; right: 5px;">
+        <p class="timezone"></p>
+        <p class="AM"></p>
     </div>
-    <div class="buttons">
+    <div class="buttons" style="position: absolute; left: 5px;" >
         <button class="start">start</button>
         <button class="stop">stop</button>
         <form>
@@ -22,8 +21,38 @@
             <button class="text-btn">submit</button>
         </form>
     </div>
- 
-
     
+    
+    <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <form>
+        <label for="cityDropdown">Select a City:</label>
+        <select id="cityDropdown" name="city">
+            <!-- Options will be dynamically added here -->
+        </select>
+    
+        <script>
+            fetch('https://restcountries.com/v3.1/all')
+                .then(response => response.json())
+                .then(data => {
+                    const cityDropdown = document.getElementById('cityDropdown');
+                    data.forEach(country => {
+                        const capital = country.capital ? country.capital[0] : 'N/A';
+                        const option = document.createElement('option');
+                        option.value = capital;
+                        option.textContent = `${capital}, ${country.name.common}`;
+                        cityDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        </script>
+    </form>
+
+
 </body>
 </html>
+    

@@ -6,11 +6,13 @@
     background: url(/clock.png) no-repeat;
     background-size: 100%;
 }
+
 .buttons{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 #hour, #minute, #second{
     position: absolute;
     background: black;
