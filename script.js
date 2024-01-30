@@ -1,7 +1,6 @@
 const start=document.querySelector(".start");
 const stop=document.querySelector(".stop");
-const inputElement = document.querySelector('.input');
-const textBtn = document.querySelector('.text-btn');
+
 const timezone=document.querySelector('.timezone')
 const am=document.querySelector('.AM')
 
@@ -49,17 +48,6 @@ async function fetchWorldTime(city) {
     }
 }
 fetchWorldTime("delhi")
-textBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    var city=inputElement.value;
-    console.log(city)
-    country.innerHTML = `<p>${""}</p>`;
-    stop_timer();
-    fetchWorldTime(city)
-    
-
-    
-})
 
 
 
