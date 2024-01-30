@@ -6,7 +6,11 @@
     background: url(/clock.png) no-repeat;
     background-size: 100%;
 }
-
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #hour, #minute, #second{
     position: absolute;
     background: black;
@@ -34,4 +38,13 @@
     left: 49.25%;
     opacity: 0.8; 
     
+}
+@media (max-width: 767px) {
+    /* Your mobile styles here */
+    #clockContainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
