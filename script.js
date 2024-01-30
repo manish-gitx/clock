@@ -20,6 +20,11 @@ async function fetchWorldTime(city) {
             headers: { 'X-Api-Key': API_KEY },
             contentType: 'application/json'
         });
+        if(!response.ok){
+            console.log("there is no city exsist or a time ")
+            fetchWorldTime("delhi");
+            return;
+        }
         const result = await response.json();
         console.log(result);
         htime=result.hour;
