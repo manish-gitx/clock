@@ -61,10 +61,7 @@ textBtn.addEventListener('click',(e)=>{
 })
 
 
-// var d= new Date();
-// var htime = d.getHours();
-// let mtime = d.getMinutes();
-// let stime = d.getSeconds();
+
 
 
 
@@ -99,7 +96,3 @@ function startfun(){
     minute.style.transform = `rotate(${mrotation}deg)`;
     second.style.transform = `rotate(${srotation}deg)`;
 }
-// d = new Date();
-// console.log(d.getHours()+" "+" "+d.getMinutes()+" "+d.getSeconds());
-
-// console.log(typeof(d.getHours()))
