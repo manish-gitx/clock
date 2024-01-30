@@ -24,7 +24,7 @@ async function fetchWorldTime(city) {
             contentType: 'application/json'
         });
         if(!response.ok){
-            console.log("there is no city exsist or a time ")
+            country.innerHTML = `<p>${"City Not Found"}</p>`;
             fetchWorldTime("delhi");
             return;
         }
@@ -53,6 +53,7 @@ textBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     var city=inputElement.value;
     console.log(city)
+    country.innerHTML = `<p>${""}</p>`;
     stop_timer();
     fetchWorldTime(city)
     
