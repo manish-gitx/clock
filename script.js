@@ -1,21 +1,17 @@
 const start=document.querySelector(".start");
 const stop=document.querySelector(".stop");
+const inputElement = document.querySelector('.input');
+const textBtn = document.querySelector('.text-btn');
+
+
 
 start.addEventListener('click',start_timer);
 stop.addEventListener('click',stop_timer);
 
-var myinterval=setInterval(startfun,1000);
-function stop_timer(){
-    clearInterval(myinterval);
-}
-function start_timer(){
-    setInterval(startfun,1000);
-
-}
-
-
 
 const API_KEY = "MqQRVTSc8Pnlf55d39L+BA==wQBiRKhjNqGKc1t2";
+var htime,mtime,stime;
+var myinterval;
 
 async function fetchWorldTime(city) {
     try {
@@ -26,31 +22,58 @@ async function fetchWorldTime(city) {
         });
         const result = await response.json();
         console.log(result);
-        return result;
+        htime=result.hour;
+        mtime=result.minute;
+        stime=result.second;
+        myinterval=setInterval(startfun,1000);
+        // return result;
     } catch (error) {
         console.error('Error: ', error);
     }
 }
+fetchWorldTime("delhi")
+textBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    var city=inputElement.value;
+    console.log(city)
+    stop_timer();
+    fetchWorldTime(city)
+    
 
-fetchWorldTime("delhi").then(data=>{
-    console.log(data.hour);
-    console.log(typeof(data.hour))
-    var hour=parseInt(data.hour);
-    console.log(typeof(hour))
+    
 })
 
 
+// var d= new Date();
+// var htime = d.getHours();
+// let mtime = d.getMinutes();
+// let stime = d.getSeconds();
 
 
 
 
+function stop_timer(){
+    clearInterval(myinterval);
+}
+function start_timer(){
+    clearInterval(myinterval);
+    myinterval=setInterval(startfun,1000);
 
-
+}
 function startfun(){
-    d = new Date();
-    htime = d.getHours();
-    mtime = d.getMinutes();
-    stime = d.getSeconds();
+    stime++;
+    if (stime >= 60) {
+        stime = 0;
+        mtime++;
+        if (mtime >= 60) {
+            mtime = 0;
+            htime++;
+            if (htime >= 24) {
+                htime = 0;
+            }
+        }
+    }
+
     hrotation = 30*htime + mtime/2;
     mrotation = 6*mtime;
     srotation = 6*stime;
@@ -58,9 +81,8 @@ function startfun(){
     hour.style.transform = `rotate(${hrotation}deg)`;
     minute.style.transform = `rotate(${mrotation}deg)`;
     second.style.transform = `rotate(${srotation}deg)`;
-
 }
-d = new Date();
-console.log(d.getHours()+" "+" "+d.getMinutes()+" "+d.getSeconds());
+// d = new Date();
+// console.log(d.getHours()+" "+" "+d.getMinutes()+" "+d.getSeconds());
 
-console.log(typeof(d.getHours()))
+// console.log(typeof(d.getHours()))
