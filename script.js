@@ -15,23 +15,29 @@ function start_timer(){
 
 
 
-
-var city = 'delhi';
 const API_KEY = "MqQRVTSc8Pnlf55d39L+BA==wQBiRKhjNqGKc1t2";
 
-fetch('https://api.api-ninjas.com/v1/worldtime?city=' + city, {
-    method: 'GET',
-    headers: { 'X-Api-Key': API_KEY },
-    contentType: 'application/json'
-})
-    .then(response => response.json())
-    .then(result => {
+async function fetchWorldTime(city) {
+    try {
+        const response = await fetch('https://api.api-ninjas.com/v1/worldtime?city=' + city, {
+            method: 'GET',
+            headers: { 'X-Api-Key': API_KEY },
+            contentType: 'application/json'
+        });
+        const result = await response.json();
         console.log(result);
-    })
-    .catch(error => {
+        return result;
+    } catch (error) {
         console.error('Error: ', error);
-    });
+    }
+}
 
+fetchWorldTime("delhi").then(data=>{
+    console.log(data.hour);
+    console.log(typeof(data.hour))
+    var hour=parseInt(data.hour);
+    console.log(typeof(hour))
+})
 
 
 
