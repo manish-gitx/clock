@@ -49,9 +49,14 @@
                         option.textContent = `${capital}, ${country.name.common}`;
                         cityDropdown.appendChild(option);
                     });
-                    $('#cityDropdown').select2();
+                    $('#cityDropdown').select2().on('select2:select', function (e) {
+                    const selectedCity = e.params.data.id;
+                    stop_timer();
+                    fetchWorldTime(selectedCity);
+        });
                 })
                 .catch(error => console.error('Error:', error));
+
         </script>
     </form>
 

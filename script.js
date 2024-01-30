@@ -4,11 +4,7 @@ const inputElement = document.querySelector('.input');
 const textBtn = document.querySelector('.text-btn');
 const timezone=document.querySelector('.timezone')
 const am=document.querySelector('.AM')
-document.getElementById('cityDropdown').addEventListener('change', function() {
-    console.log(this.value);
-    stop_timer();
-    fetchWorldTime(this.value);
-});
+
 
 
 
