@@ -7,6 +7,12 @@
     background-size: 100%;
 }
 
+.info{
+    position: absolute;
+    right: 5px;
+}
+
+
 .buttons{
     display: flex;
     align-items: center;
@@ -49,4 +55,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+        .info {
+            top: 65%;
+            left: 40%;
+        }
+    
 }
