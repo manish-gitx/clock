@@ -44,9 +44,8 @@ async function fetchWorldTime(city) {
             am.innerHTML=`<p>${"AM"}</p>`;
 
         }
-       
-        myinterval=setInterval(startfun,1000);
         loader.style.display = 'none';
+        myinterval=setInterval(startfun,1000);
         // return result;
     } catch (error) {
         console.error('Error: ', error);
