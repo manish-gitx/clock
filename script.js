@@ -3,6 +3,8 @@ const stop=document.querySelector(".stop");
 
 const timezone=document.querySelector('.timezone')
 const am=document.querySelector('.AM')
+const loader=document.querySelector('.loader')
+
 
 
 
@@ -17,6 +19,7 @@ var myinterval;
 
 async function fetchWorldTime(city) {
     try {
+        loader.style.display = 'grid';
         const response = await fetch('https://api.api-ninjas.com/v1/worldtime?city=' + city, {
             method: 'GET',
             headers: { 'X-Api-Key': API_KEY },
@@ -41,7 +44,9 @@ async function fetchWorldTime(city) {
             am.innerHTML=`<p>${"AM"}</p>`;
 
         }
+       
         myinterval=setInterval(startfun,1000);
+        loader.style.display = 'none';
         // return result;
     } catch (error) {
         console.error('Error: ', error);
