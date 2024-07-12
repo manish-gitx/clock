@@ -13,7 +13,7 @@ start.addEventListener('click',start_timer);
 stop.addEventListener('click',stop_timer);
 
 
-const API_KEY = "MqQRVTSc8Pnlf55d39L+BA==wQBiRKhjNqGKc1t2";
+const API_KEY = "O3meYME+KjiHDVTlsQUZMw==xPYGfidh2hy20k2H";
 var htime,mtime,stime;
 var myinterval;
 
